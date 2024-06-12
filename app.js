@@ -27,8 +27,6 @@ app.use((err, req, res, next) => {
 
 const { DB_HOST } = process.env;
 
-console.log(DB_HOST);
-
 mongoose
   .connect(DB_HOST)
   .then(() => {
