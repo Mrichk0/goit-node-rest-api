@@ -1,7 +1,9 @@
 import Contact from "../models/Contact.js";
+
 function listContacts(params = {}) {
-  const { filter, fields, settings } = params;
-  return Contact.find(filter, fields, settings);
+  const { filter = {}, fields = null, settings = {} } = params;
+  const { skip = 0, limit = 20 } = settings;
+  return Contact.find(filter, fields).skip(skip).limit(limit);
 }
 
 function getOneContact(filter) {
